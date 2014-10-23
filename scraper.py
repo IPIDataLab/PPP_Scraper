@@ -12,7 +12,6 @@ import scraperwiki
 import urllib2
 import requests
 import lxml.html, lxml.etree
-# import re
 import calendar
 from datetime import datetime
 import time
@@ -37,26 +36,6 @@ prev_mon_abbr_2 = prev_mon_text[0:4]
 prev_mon_abbr_1 = prev_mon_abbr_1.lower()
 prev_mon_abbr_2 = prev_mon_abbr_2.lower()
 
-# # initialize parameters
-# url = 'http://www.un.org/en/peacekeeping/contributors/2014/mar14_3.pdf'
-# date = 20140331
-# dateString = '3/31/14'
-# url = 'http://www.un.org/en/peacekeeping/contributors/2014/apr14_3.pdf'
-# date = 20140430
-# dateString = '4/30/14'
-# url = 'http://www.un.org/en/peacekeeping/contributors/2014/may14_3.pdf'
-# date = 20140531
-# dateString = '5/31/14'
-# url = 'http://www.un.org/en/peacekeeping/contributors/2014/jun14_3.pdf'
-# date = 20140630
-# dateString = '6/30/14'
-# url = 'http://www.un.org/en/peacekeeping/contributors/2014/jul14_3.pdf'
-# date = 20140731
-# dateString = '7/31/14'
-# url = 'http://www.un.org/en/peacekeeping/contributors/2014/aug14_3.pdf'
-# date = 20140831
-# dateString = '8/31/14'
-
 ### Set URL
 # Check whethere 3 or 4 letter month abbreviation
 url_1 = 'http://www.un.org/en/peacekeeping/contributors/' + year + '/' + prev_mon_abbr_1 + str(year[2:4]) + '_3.pdf'
@@ -72,11 +51,11 @@ else:
 pdfdata = urllib2.urlopen(url).read()
 print "The pdf file has %d bytes" % len(pdfdata)
 
-# ### convert PDF to XML
+### convert PDF to XML
 xmldata = scraperwiki.pdftoxml(pdfdata)
 root = lxml.etree.fromstring(xmldata)
 print "After converting to xml it has %d bytes" % len(xmldata)
-# print "The first 200 characters are: ", xmldata[:200]
+print "The first 200 characters are: ", xmldata[:200]
 
 ### Parse through data
 ## set current date from URL
