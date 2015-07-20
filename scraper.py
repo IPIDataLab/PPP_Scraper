@@ -38,8 +38,9 @@ prev_mon_abbr_2 = prev_mon_abbr_2.lower()
 
 ### Set URL
 # Check whethere 3 or 4 letter month abbreviation
-url_1 = 'http://www.un.org/en/peacekeeping/contributors/' + year + '/' + prev_mon_abbr_1 + str(year[2:4]) + '_3.pdf'
-url_2 = 'http://www.un.org/en/peacekeeping/contributors/' + year + '/' + prev_mon_abbr_2 + str(year[2:4]) + '_3.pdf'
+# July 20,2015. It looks like the file and file paths are incorrect.  Just for this month change 3 to 5.
+url_1 = 'http://www.un.org/en/peacekeeping/contributors/' + year + '/' + prev_mon_abbr_1 + str(year[2:4]) + '_5.pdf'
+url_2 = 'http://www.un.org/en/peacekeeping/contributors/' + year + '/' + prev_mon_abbr_2 + str(year[2:4]) + '_5.pdf'
 
 response = requests.get(url_1)
 if response.status_code < 400:
@@ -47,9 +48,9 @@ if response.status_code < 400:
 else:
     url = url_2
 ### Catch up on months missed. Replaces above lines of code. Be sure to delete the next three lines.
-url="http://www.un.org/en/peacekeeping/contributors/2014/nov14_3.pdf"
-prev_mon_abbr_1 = "nov"
-year = 2014
+### url="http://www.un.org/en/peacekeeping/contributors/2014/nov14_3.pdf"
+### prev_mon_abbr_1 = "nov"
+### year = 2014
 ### Read PDF
 pdfdata = urllib2.urlopen(url).read()
 print "The pdf file has %d bytes" % len(pdfdata)
