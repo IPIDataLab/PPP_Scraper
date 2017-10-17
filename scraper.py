@@ -47,8 +47,8 @@ if response.status_code < 400:
 else:
     url = url_2
 ### Catch up on months missed. Replaces above lines of code. Be sure to delete the next three lines.
-url="http://www.un.org/en/peacekeeping/contributors/2017/apr17_3.pdf"
-prev_mon_abbr_1 = "apr"
+url="http://www.un.org/en/peacekeeping/contributors/2017/may17_3.pdf"
+prev_mon_abbr_1 = "may"
 year = 2017
 
 ### Read PDF
